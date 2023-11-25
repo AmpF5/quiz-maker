@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "quiz-maker-d2d8e": {
+      "hosting": {
+        "quiz-maker": [
+          "quiz-maker-d2d8e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "quiz-maker-d2d8e"
+  }
+}
