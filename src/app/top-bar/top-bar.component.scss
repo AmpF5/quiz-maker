@@ -6,7 +6,6 @@
   position:absolute;
   left: 50%;
   top:10%;
-  margin: 0 auto;
   transform:prespective(1000px) translate(-50%,-50%);
   // transform:skewY(15deg);
   transition:0.5s;
@@ -53,4 +52,10 @@
   transform:translate(-50%,-50%) skewX(0deg);
   left:0;
   color: $font-color;
+}
+
+@media screen and (max-width: 768px) {
+  .topbar h1 span{
+    font-size:2em;
+  }
 }

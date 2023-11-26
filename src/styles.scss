@@ -40,8 +40,8 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 30%;
     will-change: transform;
+    width: 100%;
     }
 
     button:disabled {
@@ -59,13 +59,6 @@ body {
     box-shadow: none;
     transform: translateY(0);
     }
-
-.center {
-    width: 700px;
-    height: auto;
-    margin: 0 auto;
-}
-
 
 .w-100 {
     width: 100%;
