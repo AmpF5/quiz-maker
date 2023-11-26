@@ -1,17 +1,10 @@
-<div class="topbar">
-  <app-top-bar></app-top-bar>
-</div>
-<div class="flex justify-content-center mt-24">
-  <div>
-    <app-main-menu></app-main-menu>
+<div class="flex flex-column justify-content-center gap-3">
+  <div class="topbar flex justify-content-center">
+    <app-top-bar></app-top-bar>
   </div>
-  
-  <!-- <div *ngFor="let question of testQuestions">
-    <div> {{ question.content }}</div>
-    <div *ngFor="let answer of question.answers">
-      <input name='answer' type="radio"/>
-      <label>{{ answer.content }} </label>
+  <div class="flex justify-content-center">
+    <div>
+      <app-main-menu></app-main-menu>
     </div>
-  </div> -->
-  
+  </div>
 </div>

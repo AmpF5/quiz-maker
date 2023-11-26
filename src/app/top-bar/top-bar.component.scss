@@ -1,15 +1,11 @@
 @import 'src/styles.scss';
 
 // logo animation and style from https://freefrontend.com/css-text-effects/ https://codepen.io/G-Mariem/pen/gOvBjMP and modified by me
-.topbar{
-  display: flex;
+.topbar {
   position:absolute;
-  left: 50%;
   top:10%;
   transform:prespective(1000px) translate(-50%,-50%);
-  // transform:skewY(15deg);
   transition:0.5s;
-  // margin-top: 4px;
 }
 
 .topbar:hover{
@@ -56,6 +52,7 @@
 
 @media screen and (max-width: 768px) {
   .topbar h1 span{
-    font-size:2em;
+    // temp fix for mobile device??
+    font-size:1.7em;
   }
 }
