@@ -1,0 +1,56 @@
+@import 'src/styles.scss';
+
+// logo animation and style from https://freefrontend.com/css-text-effects/ https://codepen.io/G-Mariem/pen/gOvBjMP and modified by me
+.topbar{
+  display: flex;
+  position:absolute;
+  left: 50%;
+  top:10%;
+  margin: 0 auto;
+  transform:prespective(1000px) translate(-50%,-50%);
+  // transform:skewY(15deg);
+  transition:0.5s;
+  // margin-top: 4px;
+}
+
+.topbar:hover{
+  transform:prespective(1000px) translate(-50%,-50%);
+  transform:skewY(0deg);
+}
+
+.topbar h1 span{
+  position:absolute;
+  top:0;
+  left:0;
+  transform:translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  text-transform:uppercase;
+  font-size:3em;
+  color:#fff;
+  transform-style:preserve-3d;
+  transition:0.8s;
+}
+.topbar h1 span:nth-child(1){
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.topbar h1 span:nth-child(2){
+  color:$primary-color;
+  transform:translate(-50%,-50%) skewX(-60deg);
+  left:-8px;
+  clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+}
+
+.topbar h1 span:nth-child(3){
+  transform:translate(-50%,-50%) skewY(0deg);
+  left:-17px;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.topbar:hover h1 span:nth-child(2), 
+.topbar:hover h1 span:nth-child(3){
+  transform:translate(-50%,-50%) skewX(0deg);
+  left:0;
+  color: $font-color;
+}

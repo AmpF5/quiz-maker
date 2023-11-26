@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
+import { testQuestions } from 'src/models/question';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { Firestore, collection, addDoc, collectionData } from '@angular/fire/fir
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  protected testQuestions = testQuestions;
   constructor(private firestore: Firestore, private cd: ChangeDetectorRef) {
   }
 

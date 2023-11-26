@@ -1,3 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
-$background-color: #707070;
-$font-color: #CCC;
+$background-color: #26282B;
+$font-color: #FEFCFF;
+$primary-color: #5F85DB;
+$secondary-color: #90B8F8;
+$topbar-color: #232427;
+* {
+    //TODO: choose better font
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $background-color;
+}
+
+// base button style from: https://getcssscan.com/css-buttons-examples and modified by me
+.button-main {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid $primary-color;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: $font-color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 30%;
+    will-change: transform;
+    }
+
+    button:disabled {
+    pointer-events: none;
+    }
+
+    button:hover {
+    color: $font-color;
+    background-color: $secondary-color;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    }
+
+    button:active {
+    box-shadow: none;
+    transform: translateY(0);
+    }
+
+.center {
+    width: 700px;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.mt-24 {
+    margin-top: 24px; 
+}

@@ -1,10 +1,17 @@
-<form #f="ngForm" (ngSubmit)="addData(f)">
-  <input type="text" name="name" ngModel>
-  <br>
-  <input type="email" name="email" ngModel>
-  <br>
-  <input type="password" name="password" ngModel>
-  <br>
-  <button type="submit">Save</button>
-  <button type="default" (click)="getData()">Load Data</button>
-</form>
+<div class="topbar">
+  <app-top-bar></app-top-bar>
+</div>
+<div class="center mt-24">
+  <div>
+    <app-main-menu></app-main-menu>
+  </div>
+  
+  <!-- <div *ngFor="let question of testQuestions">
+    <div> {{ question.content }}</div>
+    <div *ngFor="let answer of question.answers">
+      <input name='answer' type="radio"/>
+      <label>{{ answer.content }} </label>
+    </div>
+  </div> -->
+  
+</div>

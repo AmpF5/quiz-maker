@@ -1,0 +1,9 @@
+@import '/src/styles.scss';
+
+.center {
+    div {
+        justify-content: center;
+        display: flex;
+        padding: 4px;
+    }
+}
