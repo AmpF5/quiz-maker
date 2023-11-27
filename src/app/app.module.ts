@@ -9,13 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { config } from 'src/environment/environment';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { PharmacologyComponent } from './main-menu/pharmacology/pharmacology.component';
+import { QuizComponent } from './shared/quiz/quiz.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    TopBarComponent
+    TopBarComponent,
+    PharmacologyComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

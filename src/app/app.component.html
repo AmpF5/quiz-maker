@@ -2,9 +2,17 @@
   <div class="topbar flex justify-content-center">
     <app-top-bar></app-top-bar>
   </div>
-  <div class="flex justify-content-center">
-    <div>
-      <app-main-menu></app-main-menu>
+    <div class="grid">
+      <div class="col-3">
+        <div>1</div>
+      </div>
+      <div class="col">
+        <div class="flex justify-content-center">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      <div class="col-3">
+        <div>3</div>
+      </div>
     </div>
-  </div>
 </div>

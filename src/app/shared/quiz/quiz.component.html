@@ -1,0 +1,9 @@
+<div class="flex flex-column justify-content-center question-section">
+    <div class="">
+        <p>{{ currentQuestion.content }}</p>
+    </div>
+    <div class="flex justify-content-center" *ngFor="let answer of currentQuestion.answers">
+        <input name='answer' type="radio"/>
+        <label>{{ answer.content }} </label>
+    </div>
+</div>

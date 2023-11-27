@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-menu',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-menu.component.scss']
 })
 export class MainMenuComponent {
+  
+  constructor(private router: Router) {
+    
+  }
 
+
+
+  protected openQuiz() {
+    this.router.navigate(['/pharmacology'])
+  }
 }
