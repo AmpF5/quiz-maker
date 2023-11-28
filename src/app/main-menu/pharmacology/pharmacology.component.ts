@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Question, testQuestions } from 'src/models/question';
 
 @Component({
   selector: 'app-pharmacology',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pharmacology.component.scss']
 })
 export class PharmacologyComponent {
-
+  protected testQuestions = testQuestions;
 }
