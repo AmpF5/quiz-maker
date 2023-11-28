@@ -1,27 +1,46 @@
-# QuizMaker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+<p align="center"><img src="https://github.com/AmpF5/quiz-maker/assets/45670706/f4ca11de-e995-4939-95a1-e7368209646e" alt="Logo" height="128"></p>
+<h1 align="center">Quiz Maker</h1>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<p align="center">It's a simple personal app just to help me and my friends to create quizes to study at Uni.</p>
+<hr>
 
-## Code scaffolding
+## Download / How to use it?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Local download and local run
+Git clone repo to desire folder.
 
-## Build
+Then run following commands.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```npm install```
 
-## Running unit tests
+```npm build```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```ng s``` - to run a local server
 
-## Running end-to-end tests
+### Host a server and firestore
+To host a server you need a firebase project.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Then in ```/src``` create a new folder name ```environment```.
 
-## Further help
+Inside a newly created folder type 
+```
+export const config = {
+  firebase: {
+    // HERE IS YOUR FIREBASE INFO 
+    }
+}
+```
+### How ot use it?
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## How it works?
+
+I'm scrapping pdf's to get questions data and add them directly to database as .json. In most cases it's diffcult to get correct answers from scrapping(due to different kinds of marking correct answers) so you need complete whole quiz and edit data here(if you don't have access to database).
+
+Depending on the pdf, it is very possible that you will need to modify the scrapping algorithm.
+
+Hosting is via firebase hosting.
+
+Database is firebase firestore.
