@@ -3,19 +3,19 @@
 <h1 align="center">Quiz Maker</h1>
 
 
-<p align="center">It's a simple personal app just to help me and my friends to create quizes to study at Uni.</p>
+<p align="center">It's a simple personal app just to help me and my friends to create quizzes to study at Uni.</p>
 <hr>
 
 ## Download / How to use it?
 
 ### Local download and local run
-Git clone repo to desire folder.
+Git clone repo to desired folder.
 
-Then run following commands.
+Then run the following commands.
 
 ```npm install```
 
-```npm build```
+```npm run build```
 
 ```ng s``` - to run a local server
 
@@ -32,15 +32,15 @@ export const config = {
     }
 }
 ```
-### How ot use it?
-
+### How to use it?
+// TODO 
 
 ## How it works?
 
-I'm scrapping pdf's to get questions data and add them directly to database as .json. In most cases it's diffcult to get correct answers from scrapping(due to different kinds of marking correct answers) so you need complete whole quiz and edit data here(if you don't have access to database).
+I'm scrapping pdf's to get questions data and add them directly to the database as .json. In most cases, it's difficult to get correct answers from scrapping(due to different kinds of marking correct answers) so you need to complete the whole quiz and edit data here(if you don't have access to the database).
 
-Depending on the pdf, it is very possible that you will need to modify the scrapping algorithm.
+Depending on the pdf, you may need to modify the scrapping algorithm.
 
 Hosting is via firebase hosting.
 
-Database is firebase firestore.
+The database is firebase firestore.
