@@ -18,7 +18,7 @@ body {
 }
 
 // base button style from: https://getcssscan.com/css-buttons-examples and modified by me
-.button-main {
+.button-default {
     appearance: none;
     background-color: transparent;
     border: 2px solid $primary-color;
@@ -46,11 +46,11 @@ body {
     width: 100%;
 }
 
-.button-secondary {
+.button-success {
     appearance: none;
     background-color: transparent;
     border: 2px solid $accept-color;
-    border-radius: 8px;
+    border-radius: 15px;
     box-sizing: border-box;
     color: $font-color;
     cursor: pointer;
@@ -74,7 +74,7 @@ body {
     width: 100%;
 }
 
-.button-secondary:hover{
+.button-success:hover{
     color: $font-color;
     background-color: $accept-color;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
@@ -124,6 +124,22 @@ button:active {
 
 .h-100 {
     height: 100%;
+}
+
+.font-size-10 {
+    font-size: 10px;
+}
+
+.font-size-12 {
+    font-size: 12px;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-size-16 {
+    font-size: 16px;
 }
 
 .mt-24 {

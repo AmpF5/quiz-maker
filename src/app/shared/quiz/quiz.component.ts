@@ -18,11 +18,12 @@ export class QuizComponent implements OnInit {
 
 
   protected currentQuestion!: Question;
-  protected isEditMode = false;
-  private userAnswers: QuizResult = {answers: []};
+  protected isEditMode = false
+  protected isQuizCompleted = false;
 
-  private answer: Answer | null = null;
+  private userAnswers: QuizResult = {answers: []};
   private currentIndex = 0;
+
   constructor(private cd: ChangeDetectorRef) {
    
   }
@@ -33,30 +34,45 @@ export class QuizComponent implements OnInit {
     this.cd.markForCheck;
   }
 
+  get isLastQuestion() {
+    return this.currentIndex === this.questions.length - 1;
+  }
+
+  get isFirstQuestion() {
+    return this.currentIndex === 0;
+  }
+
+  protected markAnswerAsChecked(answer: Answer) {
+    this.currentQuestion.answers.forEach(x => {
+      x.isSelected = false;
+    });
+    answer.isSelected = true;
+    this.cd.markForCheck();
+  }
 
   protected nextQuestionProceed() {
     this.addAnswer()
     this.currentIndex++;
     this.currentQuestion = this.questions[this.currentIndex]
     this.cd.markForCheck();
-    console.log(this.userAnswers);
-    
   }
 
-  // protected previousQuestionProceed() {
-  //   this.currentIndex--;
-  //   this.currentQuestion = this.questions[this.currentIndex]
-  //   this.cd.markForCheck();
-  // }
-
-  protected markAnswerAsChecked(answer: Answer) {
-    this.answer = structuredClone(answer);
+  protected previousQuestionProceed() {
+    this.currentIndex--;
+    this.currentQuestion = this.questions[this.currentIndex]
+    this.userAnswers.answers.pop();
+    this.cd.markForCheck();
   }
+  
+  protected completeQuiz() {
+    this.isQuizCompleted = true;
+    this.cd.markForCheck();
+  }
+
 
   private addAnswer() {
     this.userAnswers.answers.push({
       content: this.currentQuestion.content,
-      //TODO add marked answer
       answers: structuredClone(this.currentQuestion.answers)
     });
   }

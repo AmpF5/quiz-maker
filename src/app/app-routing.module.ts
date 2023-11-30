@@ -5,7 +5,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 
 const routes: Routes = [
   {path: '', component: MainMenuComponent},
-  {path: 'pharmacology', component: PharmacologyComponent}
+  {path: 'pharmacology', component: PharmacologyComponent},
 ];
 
 @NgModule({

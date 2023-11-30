@@ -15,6 +15,6 @@ export class MainMenuComponent {
 
 
   protected openQuiz() {
-    this.router.navigate(['/pharmacology'])
+    this.router.navigate(['/pharmacology']);
   }
 }
