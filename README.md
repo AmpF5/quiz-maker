@@ -37,7 +37,7 @@ export const config = {
 
 ## How it works?
 
-I'm scrapping pdf's to get questions data and add them directly to the database as .json. In most cases, it's difficult to get correct answers from scrapping(due to different kinds of marking correct answers) so you need to complete the whole quiz and edit data here(if you don't have access to the database).
+I'm scrapping pdf's to get questions data and add them directly to the database as .json. In most cases, it's difficult to get correct answers from scrapping(due to different kinds of marking correct answers) so you need to complete the whole quiz and edit question one by one
 
 Depending on the pdf, you may need to modify the scrapping algorithm.
 
