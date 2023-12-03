@@ -17,27 +17,31 @@
         </div>
         <hr>
         <div class="flex justify-content-start my-1 mt-1" *ngFor="let answer of currentQuestion.answers; index as i;">
-            <input [id]="i" class="mr-2" name="answer" type="radio" (click)="markAnswerAsChecked(answer )" [checked]="answer.isSelected ?? false" [value]="answer.content"/>
+            <input [id]="i" class="mr-2" name="answer" type="radio" (click)="markAnswerAsChecked(answer)" [checked]="answer.isSelected ?? false" [value]="answer.content"/>
             <label [for]="i">{{ answer.content }} </label>
         </div>
     </div>
     <div class="flex flex-column justify-content-center">
         <div class="flex gap-2 mt-2" [ngClass]="!isFirstQuestion ? 'justify-content-between' : 'justify-content-end' ">
-            <button *ngIf="!isFirstQuestion" class="button-default font-size-14 w-30" (click)="previousQuestionProceed()">Poprzednie pytanie</button>
-            <button *ngIf="!isLastQuestion" class="button-default font-size-14 w-30" (click)="nextQuestionProceed()">Nastepne pytanie</button>
-            <button *ngIf="isLastQuestion" class="button-success font-size-14 w-30" (click)="completeQuiz()">Zakończ test</button>
+            <button *ngIf="!isFirstQuestion" class="button-default font-size-14 w-30" (click)="previousQuestionProceed()">Previous Question</button>
+            <button *ngIf="!isLastQuestion" class="button-default font-size-14 w-30" (click)="nextQuestionProceed()">Next Question</button>
+            <button *ngIf="isLastQuestion" class="button-success font-size-14 w-30" (click)="completeQuiz()">Finish Test</button>
         </div>
     </div>
 </ng-template>
 
 <ng-template #quizResults>
+    <p>Correct Answers: {{ correctAnswers }} / {{ questions.length }} ({{ percentCorrectAnswers }}%)</p>
     <div *ngFor="let question of questions" class="question mb-1">
         <div class="flex flex-column justify-content-center p-2 card my-4">
             <p>{{ question.content }}</p>
-            <hr>
             <div class="flex justify-content-start my-1 mt-1" *ngFor="let answer of question.answers; index as i;">
-                <input [id]="i" class="mr-2" name="answer" [readonly]="true" type="radio" (click)="markAnswerAsChecked(answer )" [checked]="answer.isSelected ?? false" [value]="answer.content"/>
-                <label [for]="i">{{ answer.content }} </label>
+                <label [ngClass]="[
+                    answer.isCorrect ? 'correct-answer' : 'standard-answer',
+                    answer.isSelected && answer.isCorrect ? 'correct-answer' : answer.isSelected ? 'wrong-answer' : 'standard-answer'
+                ]" >
+                {{ answer.content }}
+                </label>
             </div>
         </div>
     </div>

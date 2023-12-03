@@ -3,3 +3,15 @@
 .card {
     border: 2px double $primary-color;
 }
+
+.standard-answer {
+    color: $font-color;
+}
+
+.correct-answer {
+    color: #77dd77;
+}
+
+.wrong-answer {
+    color: #ff6666;
+}

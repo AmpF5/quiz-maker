@@ -28,18 +28,30 @@ export class QuizComponent implements OnInit {
    
   }
 
+
+  // @FIXME 
+
   ngOnInit(): void {
     this.currentIndex = 0;
-    this.currentQuestion = structuredClone(this.questions[0]);
+    this.currentQuestion = this.questions[0];
     this.cd.markForCheck;
+    
   }
 
-  get isLastQuestion() {
+  get isLastQuestion(): boolean {
     return this.currentIndex === this.questions.length - 1;
   }
 
-  get isFirstQuestion() {
+  get isFirstQuestion(): boolean {
     return this.currentIndex === 0;
+  }
+
+  get correctAnswers(): number {
+    return this.questions.flatMap(x => x.answers).filter(x => x.isCorrect && x.isSelected).length;
+  }
+  
+  get percentCorrectAnswers(): string {
+    return ((this.questions.flatMap(x => x.answers).filter(x => x.isCorrect && x.isSelected).length / this.questions.length)*100).toFixed(0);
   }
 
   protected markAnswerAsChecked(answer: Answer) {
@@ -50,30 +62,21 @@ export class QuizComponent implements OnInit {
     this.cd.markForCheck();
   }
 
-  protected nextQuestionProceed() {
-    this.addAnswer()
-    this.currentIndex++;
-    this.currentQuestion = this.questions[this.currentIndex]
-    this.cd.markForCheck();
-  }
-
   protected previousQuestionProceed() {
     this.currentIndex--;
     this.currentQuestion = this.questions[this.currentIndex]
-    this.userAnswers.answers.pop();
     this.cd.markForCheck();
   }
   
+  protected nextQuestionProceed() {
+    this.currentIndex++;
+    this.currentQuestion = this.questions[this.currentIndex];
+    this.cd.markForCheck();
+  }
+
   protected completeQuiz() {
     this.isQuizCompleted = true;
     this.cd.markForCheck();
   }
 
-
-  private addAnswer() {
-    this.userAnswers.answers.push({
-      content: this.currentQuestion.content,
-      answers: structuredClone(this.currentQuestion.answers)
-    });
-  }
 }
