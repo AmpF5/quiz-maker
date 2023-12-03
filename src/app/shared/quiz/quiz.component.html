@@ -11,9 +11,16 @@
 
 
 <ng-template #quiz>
+    <div class="flex justify-content-end p-1 gap-2">
+        <button *ngIf="!isEditMode"(click)="batchData()">Batch Questions</button>
+        <button *ngIf="!isEditMode"(click)="editMode()">Edit Mode</button>
+        <button *ngIf="isEditMode" (click)="cancelEditMode()">Cancel</button>
+        <button *ngIf="isEditMode" (click)="saveEditedData()">Save Question</button>
+    </div>
     <div class="flex flex-column justify-content-center p-2 card">
         <div class="question mb-1">
-            <p>{{ currentQuestion.content }}</p>
+            <p *ngIf="!isEditMode">{{ currentQuestion.content }}</p>
+            <input *ngIf="isEditMode" type="text" [value]="currentQuestion.content">
         </div>
         <hr>
         <div class="flex justify-content-start my-1 mt-1" *ngFor="let answer of currentQuestion.answers; index as i;">

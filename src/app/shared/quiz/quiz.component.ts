@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { QuizService } from 'src/app/services/quiz.service';
 import { Answer, Question} from 'src/models/question';
 
 interface QuizResult {
@@ -24,12 +25,9 @@ export class QuizComponent implements OnInit {
   private userAnswers: QuizResult = {answers: []};
   private currentIndex = 0;
 
-  constructor(private cd: ChangeDetectorRef) {
+  constructor(private cd: ChangeDetectorRef, private quizService: QuizService) {
    
   }
-
-
-  // @FIXME 
 
   ngOnInit(): void {
     this.currentIndex = 0;
@@ -76,6 +74,25 @@ export class QuizComponent implements OnInit {
 
   protected completeQuiz() {
     this.isQuizCompleted = true;
+    this.cd.markForCheck();
+  }
+
+  protected batchData() {
+    this.quizService.addBatchData(this.questions, 'pharmacology');
+  }
+
+  protected editMode() {
+    this.isEditMode = true;
+    this.cd.markForCheck();
+  }
+
+  protected cancelEditMode() {
+    this.isEditMode = false;
+    this.cd.markForCheck();
+  }
+
+  protected saveEditedData() {
+    this.isEditMode = false;
     this.cd.markForCheck();
   }
 
