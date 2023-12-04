@@ -8,25 +8,25 @@ import { Question, testQuestions } from 'src/models/question';
   styleUrls: ['./pharmacology.component.scss']
 })
 export class PharmacologyComponent implements OnInit{
-  // protected questions: any | null = null;
-  protected questions = testQuestions;
+  protected questions: any | null = null;
+  // protected questions = testQuestions;
 
   constructor(private quizService: QuizService) {
   }
 
 
   ngOnInit(): void {
-    // this.quizService.getData('pharmacology')
-    //   .subscribe({
-    //     next: value => {
-    //       value.forEach(x => {
-    //       })
-    //       this.questions = value;
-    //       console.log(value);
-    //     },
-    //     error: err => {
-    //       console.error(err);
-    //     }
-    // });
+    this.quizService.getData('pharmacology')
+      .subscribe({
+        next: value => {
+          value.forEach(x => {
+          })
+          this.questions = value;
+          console.log(value);
+        },
+        error: err => {
+          console.error(err);
+        }
+    });
   }
 }

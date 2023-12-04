@@ -60,6 +60,14 @@ export class QuizComponent implements OnInit {
     this.cd.markForCheck();
   }
 
+  protected changeCorrectAnswer(answer: Answer) {
+    this.currentQuestion.answers.forEach(x => {
+      x.isCorrect = false;
+    });
+    answer.isCorrect = true;
+    this.cd.markForCheck();
+  }
+
   protected previousQuestionProceed() {
     this.currentIndex--;
     this.currentQuestion = this.questions[this.currentIndex]
@@ -92,11 +100,10 @@ export class QuizComponent implements OnInit {
   }
 
   protected saveEditedData() {
-    console.log(this.currentQuestion);
-    
-    // this.quizService.updateData(this.currentQuestion, this.currentQuestion.id!, 'pharmacology')
-    // this.isEditMode = false;
-    // this.cd.markForCheck();
+    const { id, ...questionWithOutId} = this.currentQuestion;
+    this.quizService.updateData(questionWithOutId, this.currentQuestion.id!, 'pharmacology')
+    this.isEditMode = false;
+    this.cd.markForCheck();
   }
 
 }

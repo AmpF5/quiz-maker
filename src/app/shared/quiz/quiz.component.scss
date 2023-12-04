@@ -20,3 +20,8 @@ textarea {
     background-color: transparent;
     color: $font-color;
 }
+
+textarea:disabled {
+    
+    color: $font-color;
+}

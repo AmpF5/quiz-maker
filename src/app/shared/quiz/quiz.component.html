@@ -17,18 +17,19 @@
         <p-button *ngIf="isEditMode" (click)="cancelEditMode()" label="Cancel"></p-button>
         <p-button *ngIf="isEditMode" (click)="saveEditedData()" label="Save Question" severity="success"></p-button>
     </div>
-    <div class="flex flex-column justify-content-center p-2 card">
+    <div class="flex flex-column justify-content-center p-2">
         <div class="question mb-1">
-            <p *ngIf="!isEditMode">{{ currentQuestion.content }}</p>
-            <textarea *ngIf="isEditMode" rows="10" cols="54" pInputTextarea [autoResize]="true" [(ngModel)]="currentQuestion.content"></textarea>
+            <!-- <p *ngIf="!isEditMode">{{ currentQuestion.content }}</p> -->
+            <textarea [disabled]="!isEditMode" rows="10" cols="54" pInputTextarea [autoResize]="true" [(ngModel)]="currentQuestion.content"></textarea>
         </div>
         <div class="flex justify-content-start my-1 mt-1" *ngFor="let answer of currentQuestion.answers; index as i;">
-            <input [id]="i" class="mr-2" name="answer" type="radio" (click)="markAnswerAsChecked(answer)" [checked]="answer.isSelected ?? false" [value]="answer.content"/>
+            <input *ngIf="!isEditMode" [id]="i" class="mr-2" name="answer" type="radio" (click)="markAnswerAsChecked(answer)" [checked]="answer.isSelected ?? false" [value]="answer.content"/>
+            <input *ngIf="isEditMode" [id]="i" class="mr-2" name="answer" type="radio" (click)="changeCorrectAnswer(answer)" [checked]="answer.isCorrect" [value]="answer.content"/>
             <label [for]="i">{{ answer.content }} </label>
         </div>
     </div>
     <div class="flex flex-column justify-content-center">
-        <div class="flex gap-2 mt-2" [ngClass]="!isFirstQuestion ? 'justify-content-between' : 'justify-content-end' ">
+        <div *ngIf="!isEditMode" class="flex gap-2 mt-2" [ngClass]="!isFirstQuestion ? 'justify-content-between' : 'justify-content-end' ">
             <button *ngIf="!isFirstQuestion" class="button-default font-size-14 w-30" (click)="previousQuestionProceed()">Previous Question</button>
             <button *ngIf="!isLastQuestion" class="button-default font-size-14 w-30" (click)="nextQuestionProceed()">Next Question</button>
             <button *ngIf="isLastQuestion" class="button-success font-size-14 w-30" (click)="completeQuiz()">Finish Test</button>
