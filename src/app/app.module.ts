@@ -11,7 +11,19 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { PharmacologyComponent } from './main-menu/pharmacology/pharmacology.component';
 import { QuizComponent } from './shared/quiz/quiz.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/button';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
+
+const PRIMEMODULES = [
+  BrowserModule,
+  BrowserAnimationsModule,
+  ButtonModule,
+  InputTextareaModule,
+  RadioButtonModule
+]
 
 @NgModule({
   declarations: [
@@ -19,9 +31,11 @@ import { QuizComponent } from './shared/quiz/quiz.component';
     MainMenuComponent,
     TopBarComponent,
     PharmacologyComponent,
-    QuizComponent
+    QuizComponent,
+    
   ],
   imports: [
+    PRIMEMODULES,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

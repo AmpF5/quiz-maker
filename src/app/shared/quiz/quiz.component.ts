@@ -92,8 +92,11 @@ export class QuizComponent implements OnInit {
   }
 
   protected saveEditedData() {
-    this.isEditMode = false;
-    this.cd.markForCheck();
+    console.log(this.currentQuestion);
+    
+    // this.quizService.updateData(this.currentQuestion, this.currentQuestion.id!, 'pharmacology')
+    // this.isEditMode = false;
+    // this.cd.markForCheck();
   }
 
 }

@@ -11,18 +11,17 @@
 
 
 <ng-template #quiz>
-    <div class="flex justify-content-end p-1 gap-2">
-        <button *ngIf="!isEditMode"(click)="batchData()">Batch Questions</button>
-        <button *ngIf="!isEditMode"(click)="editMode()">Edit Mode</button>
-        <button *ngIf="isEditMode" (click)="cancelEditMode()">Cancel</button>
-        <button *ngIf="isEditMode" (click)="saveEditedData()">Save Question</button>
+    <div class="flex justify-content-end gap-2 py-1">
+        <!-- <p-button *ngIf="!isEditMode" (click)="batchData()" label="Batch Questions" severity="warning"></p-button> -->
+        <p-button *ngIf="!isEditMode"(click)="editMode()" label="Edit Mode" severity="help"></p-button>
+        <p-button *ngIf="isEditMode" (click)="cancelEditMode()" label="Cancel"></p-button>
+        <p-button *ngIf="isEditMode" (click)="saveEditedData()" label="Save Question" severity="success"></p-button>
     </div>
     <div class="flex flex-column justify-content-center p-2 card">
         <div class="question mb-1">
             <p *ngIf="!isEditMode">{{ currentQuestion.content }}</p>
-            <input *ngIf="isEditMode" type="text" [value]="currentQuestion.content">
+            <textarea *ngIf="isEditMode" rows="10" cols="54" pInputTextarea [autoResize]="true" [(ngModel)]="currentQuestion.content"></textarea>
         </div>
-        <hr>
         <div class="flex justify-content-start my-1 mt-1" *ngFor="let answer of currentQuestion.answers; index as i;">
             <input [id]="i" class="mr-2" name="answer" type="radio" (click)="markAnswerAsChecked(answer)" [checked]="answer.isSelected ?? false" [value]="answer.content"/>
             <label [for]="i">{{ answer.content }} </label>

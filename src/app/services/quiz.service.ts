@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, doc, updateDoc } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -8,12 +8,13 @@ import { Firestore, addDoc, collection, collectionData } from '@angular/fire/fir
 
 
 export class QuizService {
-    constructor(private firestore: Firestore) { }
+    constructor(private firestore: Firestore) {
+     }
 
 
     public getData(path: string) {
         const collectionInstance = collection(this.firestore, path);
-        return collectionData(collectionInstance);
+        return collectionData(collectionInstance, {idField: 'id'} );
     }
     
     public addData(data: any, path: string) {
@@ -28,7 +29,16 @@ export class QuizService {
         }
         
     public async updateData(data: any, id: string, path: string ) {
-      
+      const docRef = doc(this.firestore, path, id);
+      try {
+        await updateDoc(docRef, data);
+        
+        Promise.resolve(docRef);
+        console.log(`Document ${id} successfully updated!`);
+      }
+      catch (error) {
+        console.error('Error updating document:', error);
+      }
     }
 
 
